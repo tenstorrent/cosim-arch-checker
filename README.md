@@ -1,9 +1,16 @@
-# riscv-ocelot-cosim
+# cosim-arch-checker
 
-Cosim Core Verification Kit: Framework to perform DUT vs ISS (Whisper) lockstep architectural checks
+Framework to perform DUT vs ISS (Whisper) lockstep architectural checks
 
 ## Overview
-This repository contains the verification collateral needed to interface with a RISCV CPU core and perform lockstep architectural checks against the [Whisper](https://github.com/tenstorrent/whisper) RISCV CPU ISS. This has been verified using the [Boom core with Ocelot vector unit](https://github.com/tenstorrent/riscv-ocelot) inside [Chipyard](https://github.com/tenstorrent/chipyard) environment.
+This repository contains the verification collateral needed to interface with a RISCV CPU core and perform lockstep architectural checks against the [Whisper](https://github.com/tenstorrent/whisper) RISCV CPU ISS. 
+
+The main checks currently enabled are
+- Integer register checks
+- FP register checks
+- Vector register checks
+
+This has been verified using the [Boom core with Ocelot vector unit](https://github.com/tenstorrent/riscv-ocelot) inside [Chipyard](https://github.com/tenstorrent/chipyard) environment.
 
 ![](docs/images/boom_cosim.png)
 
