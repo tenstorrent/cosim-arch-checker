@@ -1,0 +1,325 @@
+#ifndef EXTERNAL_H
+#define EXTERNAL_H
+
+#include "cacTypeDef.h"
+#include "stateIdDef.h"
+#include "cacConst.h"
+
+const stateIdT supportStates [] = {
+    CAC_STATE_PC_ID,
+    CAC_STATE_RegX0_ID,
+    CAC_STATE_RegX1_ID,
+    CAC_STATE_RegX2_ID,
+    CAC_STATE_RegX3_ID,
+    CAC_STATE_RegX4_ID,
+    CAC_STATE_RegX5_ID,
+    CAC_STATE_RegX6_ID,
+    CAC_STATE_RegX7_ID,
+    CAC_STATE_RegX8_ID,
+    CAC_STATE_RegX9_ID,
+    CAC_STATE_RegX10_ID,
+    CAC_STATE_RegX11_ID,
+    CAC_STATE_RegX12_ID,
+    CAC_STATE_RegX13_ID,
+    CAC_STATE_RegX14_ID,
+    CAC_STATE_RegX15_ID,
+    CAC_STATE_RegX16_ID,
+    CAC_STATE_RegX17_ID,
+    CAC_STATE_RegX18_ID,
+    CAC_STATE_RegX19_ID,
+    CAC_STATE_RegX20_ID,
+    CAC_STATE_RegX21_ID,
+    CAC_STATE_RegX22_ID,
+    CAC_STATE_RegX23_ID,
+    CAC_STATE_RegX24_ID,
+    CAC_STATE_RegX25_ID,
+    CAC_STATE_RegX26_ID,
+    CAC_STATE_RegX27_ID,
+    CAC_STATE_RegX28_ID,
+    CAC_STATE_RegX29_ID,
+    CAC_STATE_RegX30_ID,
+    CAC_STATE_RegX31_ID,
+    CAC_STATE_RegF0_ID,
+    CAC_STATE_RegF1_ID,
+    CAC_STATE_RegF2_ID,
+    CAC_STATE_RegF3_ID,
+    CAC_STATE_RegF4_ID,
+    CAC_STATE_RegF5_ID,
+    CAC_STATE_RegF6_ID,
+    CAC_STATE_RegF7_ID,
+    CAC_STATE_RegF8_ID,
+    CAC_STATE_RegF9_ID,
+    CAC_STATE_RegF10_ID,
+    CAC_STATE_RegF11_ID,
+    CAC_STATE_RegF12_ID,
+    CAC_STATE_RegF13_ID,
+    CAC_STATE_RegF14_ID,
+    CAC_STATE_RegF15_ID,
+    CAC_STATE_RegF16_ID,
+    CAC_STATE_RegF17_ID,
+    CAC_STATE_RegF18_ID,
+    CAC_STATE_RegF19_ID,
+    CAC_STATE_RegF20_ID,
+    CAC_STATE_RegF21_ID,
+    CAC_STATE_RegF22_ID,
+    CAC_STATE_RegF23_ID,
+    CAC_STATE_RegF24_ID,
+    CAC_STATE_RegF25_ID,
+    CAC_STATE_RegF26_ID,
+    CAC_STATE_RegF27_ID,
+    CAC_STATE_RegF28_ID,
+    CAC_STATE_RegF29_ID,
+    CAC_STATE_RegF30_ID,
+    CAC_STATE_RegF31_ID,
+    CAC_STATE_Instruction_ID,
+    CAC_STATE_RegV0_ID,
+    CAC_STATE_RegV1_ID,
+    CAC_STATE_RegV2_ID,
+    CAC_STATE_RegV3_ID,
+    CAC_STATE_RegV4_ID,
+    CAC_STATE_RegV5_ID,
+    CAC_STATE_RegV6_ID,
+    CAC_STATE_RegV7_ID,
+    CAC_STATE_RegV8_ID,
+    CAC_STATE_RegV9_ID,
+    CAC_STATE_RegV10_ID,
+    CAC_STATE_RegV11_ID,
+    CAC_STATE_RegV12_ID,
+    CAC_STATE_RegV13_ID,
+    CAC_STATE_RegV14_ID,
+    CAC_STATE_RegV15_ID,
+    CAC_STATE_RegV16_ID,
+    CAC_STATE_RegV17_ID,
+    CAC_STATE_RegV18_ID,
+    CAC_STATE_RegV19_ID,
+    CAC_STATE_RegV20_ID,
+    CAC_STATE_RegV21_ID,
+    CAC_STATE_RegV22_ID,
+    CAC_STATE_RegV23_ID,
+    CAC_STATE_RegV24_ID,
+    CAC_STATE_RegV25_ID,
+    CAC_STATE_RegV26_ID,
+    CAC_STATE_RegV27_ID,
+    CAC_STATE_RegV28_ID,
+    CAC_STATE_RegV29_ID,
+    CAC_STATE_RegV30_ID,
+    CAC_STATE_RegV31_ID,
+ }; 
+
+const std::string supportStatesSymbol [] = {
+    "PC",
+    "X0",
+    "X1",
+    "X2",
+    "X3",
+    "X4",
+    "X5",
+    "X6",
+    "X7",
+    "X8",
+    "X9",
+    "X10",
+    "X11",
+    "X12",
+    "X13",
+    "X14",
+    "X15",
+    "X16",
+    "X17",
+    "X18",
+    "X19",
+    "X20",
+    "X21",
+    "X22",
+    "X23",
+    "X24",
+    "X25",
+    "X26",
+    "X27",
+    "X28",
+    "X29",
+    "X30",
+    "X31",
+    "F0",
+    "F1",
+    "F2",
+    "F3",
+    "F4",
+    "F5",
+    "F6",
+    "F7",
+    "F8",
+    "F9",
+    "F10",
+    "F11",
+    "F12",
+    "F13",
+    "F14",
+    "F15",
+    "F16",
+    "F17",
+    "F18",
+    "F19",
+    "F20",
+    "F21",
+    "F22",
+    "F23",
+    "F24",
+    "F25",
+    "F26",
+    "F27",
+    "F28",
+    "F29",
+    "F30",
+    "F31",
+    "Instruction",
+    "V0",
+    "V1",
+    "V2",
+    "V3",
+    "V4",
+    "V5",
+    "V6",
+    "V7",
+    "V8",
+    "V9",
+    "V10",
+    "V11",
+    "V12",
+    "V13",
+    "V14",
+    "V15",
+    "V16",
+    "V17",
+    "V18",
+    "V19",
+    "V20",
+    "V21",
+    "V22",
+    "V23",
+    "V24",
+    "V25",
+    "V26",
+    "V27",
+    "V28",
+    "V29",
+    "V30",
+    "V31",
+};
+
+const sizenBitT supportStatesSize [] = {
+    UNIT_BIT_NUM, //CAC_STATE_PC_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegX0_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegX1_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegX2_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegX3_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegX4_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegX5_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegX6_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegX7_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegX8_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegX9_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegX10_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegX11_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegX12_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegX13_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegX14_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegX15_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegX16_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegX17_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegX18_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegX19_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegX20_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegX21_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegX22_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegX23_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegX24_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegX25_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegX26_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegX27_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegX28_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegX29_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegX30_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegX31_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegF0_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegF1_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegF2_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegF3_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegF4_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegF5_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegF6_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegF7_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegF8_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegF9_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegF10_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegF11_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegF12_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegF13_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegF14_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegF15_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegF16_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegF17_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegF18_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegF19_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegF20_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegF21_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegF22_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegF23_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegF24_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegF25_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegF26_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegF27_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegF28_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegF29_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegF30_ID
+    UNIT_BIT_NUM, //CAC_STATE_RegF31_ID
+    UNIT_BIT_NUM, //CAC_STATE_Instruction_ID
+    VEC_128, //CAC_STATE_RegV0_ID
+    VEC_128, //CAC_STATE_RegV1_ID
+    VEC_128, //CAC_STATE_RegV2_ID
+    VEC_128, //CAC_STATE_RegV3_ID
+    VEC_128, //CAC_STATE_RegV4_ID
+    VEC_128, //CAC_STATE_RegV5_ID
+    VEC_128, //CAC_STATE_RegV6_ID
+    VEC_128, //CAC_STATE_RegV7_ID
+    VEC_128, //CAC_STATE_RegV8_ID
+    VEC_128, //CAC_STATE_RegV9_ID
+    VEC_128, //CAC_STATE_RegV10_ID
+    VEC_128, //CAC_STATE_RegV11_ID
+    VEC_128, //CAC_STATE_RegV12_ID
+    VEC_128, //CAC_STATE_RegV13_ID
+    VEC_128, //CAC_STATE_RegV14_ID
+    VEC_128, //CAC_STATE_RegV15_ID
+    VEC_128, //CAC_STATE_RegV16_ID
+    VEC_128, //CAC_STATE_RegV17_ID
+    VEC_128, //CAC_STATE_RegV18_ID
+    VEC_128, //CAC_STATE_RegV19_ID
+    VEC_128, //CAC_STATE_RegV20_ID
+    VEC_128, //CAC_STATE_RegV21_ID
+    VEC_128, //CAC_STATE_RegV22_ID
+    VEC_128, //CAC_STATE_RegV23_ID
+    VEC_128, //CAC_STATE_RegV24_ID
+    VEC_128, //CAC_STATE_RegV25_ID
+    VEC_128, //CAC_STATE_RegV26_ID
+    VEC_128, //CAC_STATE_RegV27_ID
+    VEC_128, //CAC_STATE_RegV28_ID
+    VEC_128, //CAC_STATE_RegV29_ID
+    VEC_128, //CAC_STATE_RegV30_ID
+    VEC_128, //CAC_STATE_RegV31_ID
+};
+
+//const std::map<stateIdT, dataVectorT*> supportStatesResetValue = {
+//    {CBOARD_STATE_PC_ID, RST_8_BYTE_VALUE},
+//    {CBOARD_STATE_RegX0_ID, RST_8_BYTE_VALUE},
+//    {CBOARD_STATE_RegX1_ID, RST_8_BYTE_VALUE},
+//    {CBOARD_STATE_RegX2_ID, RST_8_BYTE_VALUE},
+//    {CBOARD_STATE_RegX3_ID, RST_8_BYTE_VALUE},
+//    {CBOARD_STATE_RegX4_ID, RST_8_BYTE_VALUE},
+//    {CBOARD_STATE_RegX5_ID, RST_8_BYTE_VALUE},
+//    {CBOARD_STATE_RegX6_ID, RST_8_BYTE_VALUE},
+//    {CBOARD_STATE_RegX7_ID, RST_8_BYTE_VALUE},
+//    {CBOARD_STATE_RegX8_ID, RST_8_BYTE_VALUE},
+//    {CBOARD_STATE_RegX9_ID, RST_8_BYTE_VALUE},
+//}
+
+#endif

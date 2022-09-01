@@ -1,0 +1,23 @@
+{
+    "xlen"      : 64,
+    "isa"       : "rv64imabfdvus",
+    "reset_vec" : "0x80000000",
+
+    "csr" : {
+        "misa" : {
+            "reset-comment" : "imabfdvus",
+            "reset"         : "0x800000000094112d",
+            "mask-comment"  : "Misa is not writable by CSR instructions",
+            "mask"          : "0x0"
+        },  
+        "mip"      : {
+            "reset"         : "0x0",
+            "comment"       : "Configure software interrupt on CPU0 to start the boot process"
+        },
+        "mstatus" : {
+            "reset"         : "0x8000000a00007800",
+            "mask-comment"  : "Readonly fields: SXL[35:34], UXL[33:32], WPRI[31:23], VS[10:9]",
+            "mask"          : "0xFFFFFFF0007FF9FF"
+        }
+    }
+}

@@ -1,0 +1,22 @@
+cc_binary(
+    name = "dpi",
+    srcs = glob(["**/*.cc", "**/*.cpp", "**/*.hpp", "**/*.h"]),
+    linkshared = True,
+    copts = [
+        "-Ibridge",
+        "-Ibridge/std",
+        "-Ibridge/whisper",
+        "-Ibridge/whisper/svdpi",
+        "-Imon/mon_instr",
+        "-Ienv",
+        "-Iexternal/CoreArchChecker/src",
+        "-Iexternal/whisper",
+    ],
+    deps  = [
+        "//cac/src:caccore",
+    ],
+    data = [
+        "@whisper//:whisper",
+    ],
+)
+    
