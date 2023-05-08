@@ -2,8 +2,6 @@
 
 #include "bridge.h"
 
-#include "vpi_user.h"       // vpi_printf
-
 #include <sstream>          // stringstream
 #include <iostream>         // cout
 #include <thread>           // std::this_thread::sleep_for
@@ -163,7 +161,7 @@ void cBridge::updateCac(int hart, const sRvInstr &dutInstr) {
   }
   // VR
   if (dutInstr.vr.valid) {
-    size8BytesT dwordArray [vLen_/64] = {0};
+    size8BytesT dwordArray [128] = {0};
     for (int i = 0; i< vLen_/64; i++) {
       dwordArray[i] = dutInstr.vr.vrd_wdata[i];
     }
@@ -177,7 +175,7 @@ void cBridge::updateCac(int hart, uint64_t cycle, uint64_t tag, sWhisperState &w
   updatePc(hart, eSrc::k_Whisper, whisInstr.pc);
   // Iterate over other changes - r, f, v,
   size8BytesT dwordArray [1] = {0};
-  size8BytesT dwordVecArray [vLen_/64] = {0};
+  size8BytesT dwordVecArray [128] = {0};
   uint32_t entries = vLen_/64;
   for (auto i = 0u; i < whisInstr.changeCount; i++) {
     bool success = whisperChange(hart, whisInstr.resource, whisInstr.address, whisInstr.value, whisInstr.valid);

@@ -32,9 +32,12 @@ whisperConnectHostPort(const char* host, unsigned port)
   if (soc < 0)
     {
       char buffer[512];
-      char* p = strerror_r(errno, buffer, sizeof(buffer));
-      std::cerr << "Failed to create socket: " << p << '\n';
-      return -1;
+      if (!strerror_r(errno, buffer, sizeof(buffer)))
+        {
+        char *p = buffer;
+        std::cerr << "Failed to create socket: " << p << '\n';
+        return -1;
+        }
     }
 
   // 2. Obtain host IP address.

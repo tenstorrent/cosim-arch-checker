@@ -3,10 +3,11 @@
 #pragma once
 
 #include <string>
+#include <vpi_user.h>       // vpi_printf
 
 #include "bridge_base.h"
 #include "whisper_client.h"
-#include "cac/src/cacCore.h"        // CoreArchChecker
+#include "cacCore.h"        // CoreArchChecker
 
 class cBridge : public cBridgeBase {
 
@@ -28,7 +29,7 @@ public:
 
 private:
   // Encapsulate whisper state
-  typedef struct {
+  typedef struct sWhisperState {
     //used in whisperStep
     uint64_t tag;
     uint64_t time;

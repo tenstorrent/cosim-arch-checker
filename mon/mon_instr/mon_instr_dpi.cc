@@ -15,7 +15,7 @@ void instr_register_intf(std::string name, cMonInstr *intf) {
 
 void instr_deregister_intf(std::string name) { intfs.erase(name); }
 
-void monitor_retire(char *name, int hart, std::uint64_t cycle, std::uint64_t tag, std::uint64_t pc, std::uint64_t opcode, std::uint32_t trap) {
+void monitor_instr(char *name, int hart, std::uint64_t cycle, std::uint64_t tag, std::uint64_t pc, std::uint64_t opcode, std::uint32_t trap) {
   auto ptr = intfs.find(name);
   if (ptr != intfs.end()) {
     ptr->second->monRetire(hart, cycle, tag, pc, opcode, trap);
