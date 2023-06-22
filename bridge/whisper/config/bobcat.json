@@ -1,0 +1,33 @@
+{
+    "xlen" : 64,
+
+    "isa" : "rv64imabfdvus_zfh",
+
+    "reset_vec" : "0x10040",
+
+    "clint" : "0x2000000",
+
+    "vector" : {
+              "bytes_per_vec" : 32,
+              "min_bytes_per_elem" : 1,
+              "max_bytes_per_elem" : 8
+               },
+
+    "csr" : {
+	      "misa" : {
+	          "reset-comment" : "imabfdvus",
+	          "reset" : "0x800000000034112d",
+	          "mask-comment" : "Misa is not writable by CSR instructions",
+	          "mask" : "0x0"
+	      },  
+        "mip"      : {
+            "reset" : "0x8",
+            "comment" : "Configure software interrupt on CPU0 to start the boot process"
+        },
+        "mstatus" : {
+            "reset" : "0x8000000a00007e00",
+            "mask-comment" : "Readonly fields: SXL[35:34], UXL[33:32], WPRI[31:23], VS[10:9]",
+            "mask" : "0xFFFFFFF0007FF9FF"
+        }
+    }
+}
