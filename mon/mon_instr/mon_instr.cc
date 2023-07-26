@@ -47,11 +47,15 @@ void cMonInstr::monFpr(int hart, std::uint64_t cycle, std::uint32_t addr, std::u
   rvInstr.fpr.frd_wdata = data;
 }
 
-void cMonInstr::monVr(int hart, std::uint64_t cycle, std::uint32_t addr, std::uint64_t *data) {
-  rvInstr.vr.valid = true;
-  rvInstr.vr.vrd_addr = addr;
-  for (int i = 0; i < k_VLen/64; i++)
-    rvInstr.vr.vrd_wdata[i] = data[i];
+void cMonInstr::monVr(int hart, std::uint64_t cycle, std::uint32_t addr, std::uint64_t *data, std::uint8_t mask) {
+  for (int i = 0; i < 8; i++) {
+    rvInstr.vr.valid[i] = (mask >> i) & 1;
+    if (rvInstr.vr.valid[i]) {
+      rvInstr.vr.vrd_addr[i] = addr+i;
+      for (int j = 0; j < k_VLen/64; j++)
+        rvInstr.vr.vrd_wdata[i][j] = data[(k_VLen/64)*i+j];
+    }
+  }
 }
 
 void cMonInstr::monCsr(int hart, std::uint64_t cycle, std::uint32_t addr, std::uint64_t data) {
@@ -95,24 +99,26 @@ void cMonInstr::display(int hart, const sRvInstr &instr) {
               << " Reg=F" << std::dec << instr.fpr.frd_addr << ","
               << " Data=0x" << std::hex << instr.fpr.frd_wdata
               << "]\n";
-  if (instr.vr.valid) {
-    std::stringstream regval;
-    uint64_t val[k_VLen/64] = {0};
-    int num_dwords = k_VLen/64;
-    for (int i = 0; i < num_dwords; i++) {
-      val[i] = instr.vr.vrd_wdata[i];
+  for (int reg = 0; reg < 8; reg++) {
+    if (instr.vr.valid[reg]) {
+      std::stringstream regval;
+      uint64_t val[k_VLen/64] = {0};
+      int num_dwords = k_VLen/64;
+      for (int i = 0; i < num_dwords; i++) {
+        val[i] = instr.vr.vrd_wdata[reg][i];
+      }
+      regval << std::hex << std::setfill('0') << std::setw(16) << val[num_dwords-1];
+      for (int i=num_dwords-2; i>0; i--) {
+         regval  << "_" << std::hex << std::setfill('0') << std::setw(16) << val[i];  
+      }
+      regval << "_" << std::hex << std::setfill('0') << std::setw(16) << val[0];
+      std::cout << "<" << std::dec << instr.cycle << ">"
+                << " DutVrWr: "
+                << "[Hart=" << hart << ","
+                << " Reg=V" << std::dec << instr.vr.vrd_addr[reg] << ","
+                << " Data=0x" << std::hex << regval.str()
+                << "]\n";
     }
-    regval << std::hex << std::setfill('0') << std::setw(16) << val[num_dwords-1];
-    for (int i=num_dwords-2; i>0; i--) {
-       regval  << "_" << std::hex << std::setfill('0') << std::setw(16) << val[i];  
-    }
-    regval << "_" << std::hex << std::setfill('0') << std::setw(16) << val[0];
-    std::cout << "<" << std::dec << instr.cycle << ">"
-              << " DutVrWr: "
-              << "[Hart=" << hart << ","
-              << " Reg=V" << std::dec << instr.vr.vrd_addr << ","
-              << " Data=0x" << std::hex << regval.str()
-              << "]\n";
   }
   // Retire
   std::cout << "<" << std::dec << instr.cycle << ">"

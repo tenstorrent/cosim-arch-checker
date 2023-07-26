@@ -160,12 +160,14 @@ void cBridge::updateCac(int hart, const sRvInstr &dutInstr) {
     updateRegs(hart, eSrc::k_Dut, eResource::k_FpReg, dutInstr.fpr.frd_addr, dwordArray);
   }
   // VR
-  if (dutInstr.vr.valid) {
-    size8BytesT dwordArray [128] = {0};
-    for (int i = 0; i< vLen_/64; i++) {
-      dwordArray[i] = dutInstr.vr.vrd_wdata[i];
+  for (int reg = 0; reg < 8; reg++) {
+    if (dutInstr.vr.valid[reg]) {
+      size8BytesT dwordArray [128] = {0};
+      for (int i = 0; i< vLen_/64; i++) {
+        dwordArray[i] = dutInstr.vr.vrd_wdata[reg][i];
+      }
+      updateRegs(hart, eSrc::k_Dut, eResource::k_VecReg, dutInstr.vr.vrd_addr[reg], dwordArray);
     }
-    updateRegs(hart, eSrc::k_Dut, eResource::k_VecReg, dutInstr.vr.vrd_addr, dwordArray);
   }
 }
 

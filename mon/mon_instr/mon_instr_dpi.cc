@@ -36,10 +36,10 @@ void monitor_fpr(char *name, int hart, std::uint64_t cycle, std::uint32_t addr, 
   }
 }
 
-void monitor_vr(char *name, int hart, std::uint64_t cycle, std::uint32_t addr, std::uint64_t *data) {
+void monitor_vr(char *name, int hart, std::uint64_t cycle, std::uint32_t addr, std::uint64_t *data, std::uint8_t mask) {
   auto ptr = intfs.find(name);
   if (ptr != intfs.end()) {
-    ptr->second->monVr(hart, cycle, addr, data);
+    ptr->second->monVr(hart, cycle, addr, data, mask);
   }
 }
 

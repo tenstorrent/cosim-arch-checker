@@ -20,7 +20,7 @@ void final();
 void monRetire(int hart, std::uint64_t cycle, std::uint64_t tag, std::uint64_t pc, std::uint64_t opcode, std::uint32_t trap);
 void monGpr(int hart, std::uint64_t cycle, std::uint32_t addr, std::uint64_t data);
 void monFpr(int hart, std::uint64_t cycle, std::uint32_t addr, std::uint64_t data);
-void monVr(int hart, std::uint64_t cycle, std::uint32_t addr, std::uint64_t *data);
+void monVr(int hart, std::uint64_t cycle, std::uint32_t addr, std::uint64_t *data, std::uint8_t);
 void monCsr(int hart, std::uint64_t cycle, std::uint32_t addr, std::uint64_t data);
 
 private:

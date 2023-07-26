@@ -48,16 +48,18 @@ struct sFpr {
 };
 
 struct sVr {
-  bool valid;
-  uint32_t vrd_addr;
-  uint64_t vrd_wdata[k_VLen/64];
+  bool valid[8];
+  uint32_t vrd_addr[8];
+  uint64_t vrd_wdata[8][k_VLen/64];
  
   sVr() {
     clear();
   }
 
   void clear() {
-    valid = false;
+    for(int i = 0; i < 8; i++) {
+      valid[i] = false;
+    }
   }
 };
 
