@@ -1,7 +1,7 @@
 {
     "xlen" : 64,
 
-    "isa" : "rv64imabfdvus_zfh",
+    "isa" : "rv64imabfdvus_zfh_zvfh",
 
     "reset_vec" : "0x10040",
 
@@ -27,7 +27,7 @@
         "mstatus" : {
             "reset" : "0x8000000a00007e00",
             "mask-comment" : "Readonly fields: SXL[35:34], UXL[33:32], WPRI[31:23], VS[10:9]",
-            "mask" : "0xFFFFFFF0007FF9FF"
+            "mask" : "0xFFFFFFF0007FFFFF"
         }
     }
 }

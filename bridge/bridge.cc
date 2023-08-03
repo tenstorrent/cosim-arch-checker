@@ -136,7 +136,7 @@ void cBridge::stepWhisper(int hart, uint64_t cycle, uint64_t tag, sWhisperState 
   
   // Hack to step whisper an extra time on wfi to synch with RTL jump to handler
   std::string disasm(whisInstr.buffer, whisInstr.bufferSize);
-  if (disasm.find("wfi") != std::string::npos) {
+  if (disasm.find("interrupt") != std::string::npos) {
     success = whisperStep(hart, cycle, tag,  whisInstr.pc, whisInstr.opcode, whisInstr.changeCount, 
       whisInstr.buffer, whisInstr.bufferSize, whisInstr.privMode, whisInstr.fpFlags, whisInstr.trap);
     if (bridge_tracer)
