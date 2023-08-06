@@ -1,7 +1,7 @@
 {
     "xlen" : 64,
 
-    "isa" : "rv64gc",
+    "isa" : "rv64imafdczicer_zifencei",
 
     "reset_vec" : "0x10040",
 
