@@ -77,7 +77,7 @@ void monitor_retire(char *name, int hart, std::uint64_t cycle, std::uint64_t tag
 
 ### Whisper config json
 Example:
-https://yyz-gitlab.local.tenstorrent.com/manees/riscv-ocelot-cosim/-/blob/main/bridge/whisper/config/ocelot.json
+https://github.com/tenstorrent/cosim-arch-checker/blob/main/bridge/whisper/config/ocelot.json
 
 ## Sample output
 From stdout log file:
