@@ -1,7 +1,7 @@
 {
     "xlen" : 64,
 
-    "isa" : "rv64imafdcvzicer_zifencei_zvfh",
+    "isa" : "rv64imafdcvuszicer_zifencei_zvfh",
 
     "reset_vec" : "0x10040",
 
@@ -25,7 +25,7 @@
             "comment" : "Configure software interrupt on CPU0 to start the boot process"
         },
         "mstatus" : {
-            "reset" : "0x8000000a00007e00",
+            "reset" : "0x0000000a00000080",
             "mask-comment" : "Readonly fields: SXL[35:34], UXL[33:32], WPRI[31:23], VS[10:9]",
             "mask" : "0xFFFFFFF0007FFFFF"
         }
